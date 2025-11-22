@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bin-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn main:app"
+    envVars:
+      - key: SUPABASE_CONN_STRING
+        sync: false
